@@ -1,0 +1,343 @@
+/* ═══════════════════════════════
+   AccioPet — cards.css
+   Carruseles, cards, secciones
+═══════════════════════════════ */
+
+/* ── CARRUSEL ── */
+.carousel-section { padding: 32px 0 0; position: relative; z-index: 1; }
+.carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  margin-bottom: 14px;
+}
+.carousel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--choco);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ver-mas {
+  color: var(--amber);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ver-mas:hover { text-decoration: underline; }
+
+.carousel-wrap { position: relative; }
+.carousel-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px 24px 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--parch);
+  box-shadow: var(--sh);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--choco);
+  z-index: 10;
+  transition: .2s;
+}
+.carousel-btn:hover { background: var(--amber); border-color: var(--amber); color: white; }
+.carousel-btn.prev { left: 4px; }
+.carousel-btn.next { right: 4px; }
+
+/* ── CARD BASE ── */
+.card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--parch);
+  box-shadow: var(--sh);
+  transition: transform .2s, box-shadow .2s;
+  cursor: pointer;
+  position: relative;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--sh-lg); }
+
+/* ── CARD NOTICIA ── */
+.card-news { width: 260px; }
+.card-news .thumb {
+  height: 148px;
+  background: var(--cream2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  position: relative;
+}
+.thumb-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--cream2), var(--parch));
+}
+.thumb-emoji { position: relative; }
+
+.card-cat {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 50px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.cat-perro  { background: #2471A3; color: white; }
+.cat-gato   { background: #8E44AD; color: white; }
+.cat-otro   { background: #27AE60; color: white; }
+.cat-salud  { background: #E74C3C; color: white; }
+.cat-nutri  { background: #E67E22; color: white; }
+.cat-tip    { background: #3A7D44; color: white; }
+.cat-viaje  { background: #2471A3; color: white; }
+.cat-rec    { background: var(--amber); color: white; }
+
+.card-body { padding: 14px; }
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--choco);
+  line-height: 1.3;
+  margin-bottom: 7px;
+}
+.card-body p { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 10px; }
+.card-meta { font-size: 11px; color: #bbb; display: flex; gap: 8px; }
+
+/* ── CARD AD ── */
+.card-ad {
+  width: 260px;
+  border: 2px solid rgba(201,106,18,.25) !important;
+  background: linear-gradient(135deg, #FFF8EE, var(--white)) !important;
+}
+.ad-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: 10px 14px 0;
+  display: block;
+}
+.card-ad .card-body h3 { color: var(--amber); }
+
+/* ── CARD STORY (IG) ── */
+.card-story {
+  width: 136px;
+  min-height: 224px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+.story-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  background: var(--cream2);
+}
+.story-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28,16,8,.82) 0%, transparent 55%);
+}
+.story-content { position: relative; padding: 12px 10px; }
+.story-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--gold-f);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  display: block;
+  margin-bottom: 3px;
+}
+.story-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+}
+
+/* ── CARD LANZAMIENTO ── */
+.card-launch { width: 220px; }
+.card-launch .thumb {
+  height: 130px;
+  background: linear-gradient(135deg, var(--magic), var(--magic-l));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  position: relative;
+}
+.launch-badge {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  background: var(--gold-f);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 50px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.price {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--amber);
+  margin: 7px 0;
+}
+.price del { font-size: 12px; color: #aaa; font-family: 'Nunito', sans-serif; font-weight: 400; margin-right: 5px; }
+.btn-launch {
+  width: 100%;
+  background: var(--amber);
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: .2s;
+  margin-top: 3px;
+}
+.btn-launch:hover { background: var(--choco); }
+
+/* ── CARD TIP ── */
+.card-tip { width: 240px; }
+.card-tip .thumb {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 46px;
+}
+.tip-senior .thumb  { background: linear-gradient(135deg, #FEF9E7, #FDEBD0); }
+.tip-travel .thumb  { background: linear-gradient(135deg, #EAF4FB, #D6EAF8); }
+
+/* ── SECCIONES ESPECIE ── */
+.species-section { padding: 52px 24px; max-width: 1200px; margin: 0 auto; }
+.species-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+.species-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.1);
+  flex-shrink: 0;
+}
+.icon-dog { background: linear-gradient(135deg, #2471A3, #1A5276); }
+.icon-cat { background: linear-gradient(135deg, #8E44AD, #6C3483); }
+.icon-other { background: linear-gradient(135deg, #3A7D44, #1E8449); }
+.species-header h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--choco); }
+.species-header p { font-size: 13px; color: #999; margin-top: 3px; }
+
+/* ── GRID OTROS ── */
+.otros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.otro-item {
+  background: var(--white);
+  border: 1px solid var(--parch);
+  border-radius: 12px;
+  padding: 16px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: .2s;
+  color: var(--choco);
+}
+.otro-item:hover { border-color: var(--amber); transform: translateY(-2px); background: #FFF8EE; }
+.otro-item .icon { font-size: 28px; display: block; margin-bottom: 6px; }
+.otro-item span { font-size: 12px; font-weight: 700; display: block; }
+
+/* ── SPONSORS ── */
+.sponsors-section {
+  background: var(--cream2);
+  padding: 40px 24px;
+  text-align: center;
+}
+.sponsors-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 22px;
+}
+.sponsors-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto 18px;
+}
+.sponsor-chip {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--choco);
+  border: 1px solid var(--parch);
+  box-shadow: var(--sh);
+  transition: .2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sponsor-chip:hover { transform: translateY(-2px); border-color: var(--amber); }
+.sponsor-cta { font-size: 13px; color: #888; }
+.sponsor-cta a { color: var(--amber); font-weight: 700; }
+.sponsor-cta a:hover { text-decoration: underline; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .card-news { width: 220px; }
+  .card-story { width: 118px; min-height: 200px; }
+  .card-launch { width: 190px; }
+  .card-tip { width: 210px; }
+  .otros-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+}

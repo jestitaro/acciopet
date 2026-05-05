@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artículo — AccioPet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/cards.css">
+<link rel="stylesheet" href="../css/forms.css">
+<style>
+.article-wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 72px; }
+.article-hero {
+  background: var(--choco);
+  padding: 52px 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.article-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(107,63,160,.2) 0%, transparent 55%);
+  pointer-events: none;
+}
+.article-emoji { font-size: 72px; display: block; margin-bottom: 16px; position: relative; }
+.article-cats { display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; position: relative; }
+.article-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1.2;
+  max-width: 640px;
+  margin: 0 auto 16px;
+  position: relative;
+}
+.article-meta { font-size: 13px; color: var(--parch); opacity: .7; position: relative; }
+
+/* CONTENIDO */
+.article-body { font-size: 16px; line-height: 1.75; color: #333; }
+.article-body h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--choco);
+  margin: 36px 0 14px;
+}
+.article-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--choco);
+  margin: 28px 0 10px;
+}
+.article-body p { margin-bottom: 18px; }
+.article-body ul, .article-body ol { margin: 0 0 18px 24px; }
+.article-body li { margin-bottom: 8px; }
+.article-body strong { color: var(--choco); font-weight: 800; }
+.article-body em { font-style: italic; color: var(--amber); }
+
+/* CITA DESTACADA */
+.article-quote {
+  border-left: 4px solid var(--amber);
+  background: #FFF8EE;
+  border-radius: 0 12px 12px 0;
+  padding: 18px 22px;
+  margin: 28px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--choco);
+  line-height: 1.5;
+}
+
+/* AD INLINE */
+.ad-inline {
+  background: linear-gradient(135deg, var(--amber), #A0520E);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 36px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(201,106,18,.3);
+}
+.ad-inline::before {
+  content: '';
+  position: absolute; top: -20px; right: -20px;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: rgba(255,255,255,.08);
+}
+.ad-inline-tag {
+  font-size: 10px; font-weight: 800; color: rgba(255,255,255,.6);
+  text-transform: uppercase; letter-spacing: .1em;
+  position: absolute; top: 9px; right: 12px;
+}
+.ad-inline-text h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: white; margin-bottom: 5px; }
+.ad-inline-text p { font-size: 13px; color: rgba(255,255,255,.85); margin: 0; }
+.ad-inline-btn {
+  background: white; color: var(--amber); border: none;
+  padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 800;
+  cursor: pointer; white-space: nowrap; font-family: 'Nunito', sans-serif;
+  transition: .2s; box-shadow: 0 3px 12px rgba(0,0,0,.15);
+}
+.ad-inline-btn:hover { transform: translateY(-1px); }
+
+/* AD SIDEBAR style (mobile: full width) */
+.ad-box {
+  background: var(--cream2);
+  border: 1px solid var(--parch);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 32px 0;
+  text-align: center;
+}
+.ad-box .ad-label { font-size: 10px; font-weight: 800; color: #bbb; text-transform: uppercase; letter-spacing: .1em; display: block; margin-bottom: 12px; }
+.ad-box .ad-logo { font-size: 36px; display: block; margin-bottom: 8px; }
+.ad-box h4 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--choco); margin-bottom: 6px; }
+.ad-box p { font-size: 12px; color: #888; line-height: 1.5; margin-bottom: 14px; }
+.ad-box-btn {
+  background: var(--amber); color: white; border: none;
+  padding: 9px 22px; border-radius: 50px; font-size: 13px; font-weight: 800;
+  cursor: pointer; font-family: 'Nunito', sans-serif; transition: .2s;
+}
+.ad-box-btn:hover { background: var(--choco); }
+
+/* SHARE */
+.article-share { display: flex; align-items: center; gap: 10px; margin: 40px 0 16px; flex-wrap: wrap; }
+.article-share span { font-size: 13px; font-weight: 700; color: #aaa; }
+.share-btn {
+  padding: 8px 16px; border-radius: 50px; border: none;
+  font-size: 12px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif;
+  transition: .2s;
+}
+.share-wa  { background: #25D366; color: white; }
+.share-ig  { background: linear-gradient(135deg, #E1306C, #833AB4); color: white; }
+.share-link { background: var(--cream2); color: var(--choco); border: 1px solid var(--parch) !important; }
+
+/* AUTOR */
+.author-box {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--white); border: 1px solid var(--parch);
+  border-radius: 14px; padding: 18px; margin: 36px 0;
+}
+.author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--parch); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.author-info h4 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--choco); margin-bottom: 3px; }
+.author-info p { font-size: 12px; color: #888; line-height: 1.55; }
+
+/* RELACIONADOS */
+.related-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--choco); margin-bottom: 18px; }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+@media(max-width:500px){ .related-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">✨ AccioPet — El mundo mágico de las mascotas</div>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="logo">🪄 Accio<em>Pet</em></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="../index.html#perros">🐕 Perros</a></li>
+    <li><a href="../index.html#gatos">🐱 Gatos</a></li>
+    <li><a href="../index.html#otros">🐾 Otros</a></li>
+    <li><a href="../index.html#vacunas">📅 Vacunas</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="../index.html#registro" class="btn-nav">✨ Unirme</a>
+    <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO ARTÍCULO -->
+<div class="article-hero" id="article-hero">
+  <span class="article-emoji" id="art-emoji">🐕</span>
+  <div class="article-cats" id="art-cats"></div>
+  <h1 id="art-title">Cargando...</h1>
+  <div class="article-meta" id="art-meta"></div>
+</div>
+
+<!-- CUERPO -->
+<div class="article-wrap">
+
+  <!-- CUERPO DEL ARTÍCULO (se rellena por JS o estático) -->
+  <div class="article-body" id="article-body">
+
+    <p>La alimentación de nuestras mascotas es uno de los temas que más preguntas genera entre los dueños. Con tanta información disponible y tantas opciones en el mercado, puede resultar difícil saber qué es lo mejor para ellos.</p>
+
+    <h2>¿Por qué importa lo que come tu mascota?</h2>
+    <p>Al igual que en los humanos, la dieta tiene un impacto directo en la salud, el estado de ánimo y la longevidad de los animales. Una alimentación adecuada puede prevenir enfermedades, mejorar el pelaje, fortalecer el sistema inmune y hasta influir en el comportamiento.</p>
+
+    <div class="article-quote">
+      "Un perro bien alimentado es un perro más feliz, con más energía y con menos visitas al veterinario." — Dr. Marcos Fernández, médico veterinario.
+    </div>
+
+    <!-- AD INLINE 1 -->
+    <div class="ad-inline">
+      <span class="ad-inline-tag">Publicidad</span>
+      <div class="ad-inline-text">
+        <h4>🏥 VetSaludable — Consultá online hoy</h4>
+        <p>Más de 50 veterinarios disponibles. Primera consulta con 30% OFF.</p>
+      </div>
+      <button class="ad-inline-btn">Sacar turno →</button>
+    </div>
+
+    <h2>Las opciones principales</h2>
+    <h3>Alimento balanceado</h3>
+    <p>Es la opción más conveniente y la más usada. Las marcas de calidad formulan sus productos para cubrir todos los requerimientos nutricionales. Lo importante es elegir una marca con ingredientes reales y sin rellenos artificiales.</p>
+
+    <h3>Alimentación natural cocida</h3>
+    <p>Consiste en preparar comida casera con ingredientes frescos: carnes magras, vegetales y cereales en proporciones adecuadas. Es más laboriosa pero muchos dueños reportan mejoras notables en el pelaje y la energía de sus mascotas.</p>
+
+    <ul>
+      <li><strong>Proteínas:</strong> pollo, pavo, carne vacuna, pescado.</li>
+      <li><strong>Carbohidratos:</strong> arroz, avena, batata.</li>
+      <li><strong>Verduras:</strong> zanahoria, zapallo, brócoli (con moderación).</li>
+      <li>Siempre sin sal, cebolla, ajo ni condimentos.</li>
+    </ul>
+
+    <!-- AD BOX -->
+    <div class="ad-box">
+      <span class="ad-label">Publicidad</span>
+      <span class="ad-logo">🌿</span>
+      <h4>NaturalPet — Alimentos sin conservantes</h4>
+      <p>Ingredientes reales, formulados por veterinarios. Envío gratis a todo el país.</p>
+      <button class="ad-box-btn">Ver productos →</button>
+    </div>
+
+    <h3>Alimentación BARF (cruda)</h3>
+    <p>El método BARF (Biologically Appropriate Raw Food) propone una dieta basada en carne cruda, huesos carnosos y vísceras. Tiene defensores apasionados y también críticos. Si te interesa, <em>consultá primero con tu veterinario</em> ya que requiere conocimiento y manejo cuidadoso.</p>
+
+    <h2>Alimentos prohibidos</h2>
+    <p>Independientemente del tipo de dieta que elijas, hay alimentos que nunca deben estar en el plato de tu mascota:</p>
+    <ol>
+      <li><strong>Chocolate</strong> — tóxico para perros y gatos.</li>
+      <li><strong>Uvas y pasas</strong> — pueden causar falla renal.</li>
+      <li><strong>Cebolla y ajo</strong> — dañan los glóbulos rojos.</li>
+      <li><strong>Aguacate</strong> — contiene persina, tóxica para mascotas.</li>
+      <li><strong>Xilitol</strong> (edulcorante artificial) — extremadamente peligroso.</li>
+    </ol>
+
+    <!-- AD INLINE 2 -->
+    <div class="ad-inline">
+      <span class="ad-inline-tag">Publicidad</span>
+      <div class="ad-inline-text">
+        <h4>🛒 PetShop Los Amigos — 20% off esta semana</h4>
+        <p>Alimento natural premium. Envío gratis en compras +$8.000.</p>
+      </div>
+      <button class="ad-inline-btn">Ver ofertas →</button>
+    </div>
+
+    <h2>¿Cómo hacer la transición?</h2>
+    <p>Si querés cambiar la dieta de tu mascota, hacelo de manera gradual en 7 a 14 días. Empezá mezclando un 20% de alimento nuevo con 80% del actual, y aumentá proporcionalmente cada día. Esto minimiza los problemas digestivos y da tiempo al sistema a adaptarse.</p>
+
+    <p>Recordá siempre consultar con tu veterinario de confianza antes de hacer cambios importantes en la alimentación, especialmente si tu mascota tiene condiciones de salud preexistentes.</p>
+
+  </div><!-- /article-body -->
+
+  <!-- SHARE -->
+  <div class="article-share">
+    <span>Compartir:</span>
+    <button class="share-btn share-wa" onclick="shareWA()">💬 WhatsApp</button>
+    <button class="share-btn share-ig">📸 Instagram</button>
+    <button class="share-btn share-link" onclick="copyLink()">🔗 Copiar link</button>
+  </div>
+
+  <!-- AUTOR -->
+  <div class="author-box">
+    <div class="author-avatar">🧙‍♀️</div>
+    <div class="author-info">
+      <h4>Equipo AccioPet</h4>
+      <p>Contenido revisado por médicos veterinarios y editado por nuestro equipo. Si tenés dudas sobre la salud de tu mascota, siempre consultá un profesional.</p>
+    </div>
+  </div>
+
+  <!-- RELACIONADOS -->
+  <div>
+    <div class="related-title">📚 También te puede interesar</div>
+    <div class="related-grid" id="related-grid">
+      <!-- se rellena por JS -->
+    </div>
+  </div>
+
+</div><!-- /article-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo" style="color:var(--cream)">🪄 Accio<em>Pet</em></a>
+      <p>El mundo mágico de las mascotas. Hecho con amor en Argentina 🇦🇷</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contenido</h4>
+      <ul>
+        <li><a href="../index.html#perros">🐕 Perros</a></li>
+        <li><a href="../index.html#gatos">🐱 Gatos</a></li>
+        <li><a href="../index.html#otros">🐾 Otros</a></li>
+        <li><a href="../index.html#vacunas">💉 Vacunas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Proyecto</h4>
+      <ul>
+        <li><a href="../index.html#registro">Unirme gratis</a></li>
+        <li><a href="mailto:hola@acciopet.com.ar">Contacto</a></li>
+        <li><a href="#">Privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AccioPet</span>
+    <span>Con 🧡 para todos los peludos de Argentina</span>
+  </div>
+</footer>
+
+<script src="../data/data.js"></script>
+<script>
+function toggleNav() {
+  document.getElementById('nav-menu').classList.toggle('open');
+}
+
+function shareWA() {
+  window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' — ' + window.location.href));
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => alert('Link copiado ✓'));
+}
+
+// Leer slug de URL y rellenar datos básicos desde variable global
+function loadArticle() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  if (!slug) return;
+
+  try {
+    const data = (typeof ACCIOPET_DATA !== 'undefined') ? ACCIOPET_DATA : {};
+
+    // Buscar en todos los arrays de artículos
+    const all = [
+      ...data.noticias.filter(n => n.tipo === 'noticia'),
+      ...data.articulos_perros,
+      ...data.articulos_gatos,
+      ...data.articulos_otros,
+      ...data.tips_senior,
+      ...data.tips_transporte
+    ];
+    const art = all.find(a => a.slug === slug);
+    if (!art) return;
+
+    document.title = art.titulo + ' — AccioPet';
+    document.getElementById('art-title').textContent = art.titulo;
+    document.getElementById('art-emoji').textContent = art.emoji || '🐾';
+
+    const catEl = document.getElementById('art-cats');
+    if (art.cat) {
+      catEl.innerHTML = `<span class="card-cat ${catClass(art.cat)}" style="position:static;display:inline-block">${art.catLabel || art.cat}</span>`;
+    }
+    const metaEl = document.getElementById('art-meta');
+    metaEl.textContent = [art.tiempo, art.lectura ? art.lectura + ' lectura' : '', art.target].filter(Boolean).join('  ·  ');
+
+    // Artículos relacionados (3 random del mismo array)
+    const related = all.filter(a => a.slug !== slug && a.cat === art.cat).slice(0, 4);
+    const grid = document.getElementById('related-grid');
+    if (grid && related.length) {
+      grid.innerHTML = related.map(r => `
+        <div class="card" onclick="window.location.href='articulo.html?slug=${r.slug}'" style="cursor:pointer">
+          <div style="height:90px;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:40px">${r.emoji}</div>
+          <div class="card-body"><h3>${r.titulo}</h3></div>
+        </div>`).join('');
+    }
+  } catch(e) { console.error(e); }
+}
+
+function catClass(cat) {
+  const m = { perro:'cat-perro', gato:'cat-gato', otro:'cat-otro', salud:'cat-salud', nutri:'cat-nutri', tip:'cat-tip' };
+  return m[cat] || 'cat-otro';
+}
+
+loadArticle();
+</script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AccioPet — El mundo mágico de las mascotas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">✨ AccioPet — El mundo mágico de las mascotas · Contenido nuevo cada semana</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">🪄 Accio<em>Pet</em></a>
+  <ul class="nav-menu" id="nav-menu">
+    <li class="has-drop">
+      <a href="#perros">🐕 Perros ▾</a>
+      <div class="dropdown">
+        <a href="#perros">🦴 Alimentación</a>
+        <a href="#perros">💊 Salud y vacunas</a>
+        <a href="#perros">🎾 Actividad</a>
+        <a href="#perros">🐶 Razas</a>
+        <a href="#vacunas">📅 Calendario vacunas</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="#gatos">🐱 Gatos ▾</a>
+      <div class="dropdown">
+        <a href="#gatos">🐟 Alimentación</a>
+        <a href="#gatos">💊 Salud y vacunas</a>
+        <a href="#gatos">🧶 Enriquecimiento</a>
+        <a href="#gatos">😸 Razas</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="#otros">🐾 Otros ▾</a>
+      <div class="dropdown">
+        <a href="#otros">🐇 Conejos</a>
+        <a href="#otros">🐹 Roedores</a>
+        <a href="#otros">🦜 Aves</a>
+        <a href="#otros">🐠 Peces</a>
+        <a href="#otros">🦎 Reptiles</a>
+      </div>
+    </li>
+    <li><a href="#vacunas">📅 Vacunas</a></li>
+    <li><a href="#sponsors">🏥 Tiendas</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#registro" class="btn-nav">✨ Unirme</a>
+    <button class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🪄 El mundo mágico de las mascotas</div>
+  <h1>Todo lo que tu mascota<br>necesita, <em>en un solo lugar</em></h1>
+  <p>Consejos de expertos, noticias, recomendaciones de productos y más. Para perros, gatos y todos los que llenan tu casa de amor.</p>
+  <div class="hero-btns">
+    <a href="#registro" class="btn-primary">🐾 Acceder gratis</a>
+    <a href="#noticias" class="btn-outline">Ver novedades</a>
+  </div>
+  <div class="hero-pills">
+    <a href="#perros"   class="pill">🐕 Perros</a>
+    <a href="#gatos"    class="pill">🐱 Gatos</a>
+    <a href="#otros"    class="pill">🐾 Otros</a>
+    <a href="#noticias" class="pill">📰 Noticias</a>
+    <a href="#vacunas"  class="pill">💉 Vacunas</a>
+    <a href="#tips"     class="pill">💡 Tips</a>
+  </div>
+</section>
+
+<!-- ═══ CARRUSEL: HISTORIAS ═══ -->
+<div class="carousel-section fade-up" id="noticias">
+  <div class="carousel-header">
+    <div class="carousel-title">🔥 Tendencias</div>
+    <a href="pages/noticias.html" class="ver-mas">Ver todo →</a>
+  </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-stories',-1)">‹</button>
+    <div class="carousel-track" id="track-stories"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-stories',1)">›</button>
+  </div>
+</div>
+
+<!-- ═══ CARRUSEL: NOTICIAS ═══ -->
+<div class="carousel-section fade-up">
+  <div class="carousel-header">
+    <div class="carousel-title">📰 Últimas noticias</div>
+    <a href="pages/noticias.html" class="ver-mas">Ver todo →</a>
+  </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-noticias',-1)">‹</button>
+    <div class="carousel-track" id="track-noticias"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-noticias',1)">›</button>
+  </div>
+</div>
+
+<!-- ═══ CARRUSEL: LANZAMIENTOS ═══ -->
+<div class="carousel-section fade-up">
+  <div class="carousel-header">
+    <div class="carousel-title">🚀 Lanzamientos</div>
+    <a href="pages/productos.html" class="ver-mas">Ver todo →</a>
+  </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-lanzamientos',-1)">‹</button>
+    <div class="carousel-track" id="track-lanzamientos"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-lanzamientos',1)">›</button>
+  </div>
+</div>
+
+<!-- ═══ CARRUSEL: TIPS SENIOR ═══ -->
+<div class="carousel-section fade-up" id="tips">
+  <div class="carousel-header">
+    <div class="carousel-title">🧓 Animales senior</div>
+    <a href="pages/tips.html?cat=senior" class="ver-mas">Ver todo →</a>
+  </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-senior',-1)">‹</button>
+    <div class="carousel-track" id="track-senior"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-senior',1)">›</button>
+  </div>
+</div>
+
+<!-- ═══ CARRUSEL: TIPS TRANSPORTE ═══ -->
+<div class="carousel-section fade-up">
+  <div class="carousel-header">
+    <div class="carousel-title">🚌 Mascotas en transporte</div>
+    <a href="pages/tips.html?cat=transporte" class="ver-mas">Ver todo →</a>
+  </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-transporte',-1)">‹</button>
+    <div class="carousel-track" id="track-transporte"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-transporte',1)">›</button>
+  </div>
+</div>
+
+<!-- ═══ SECCIÓN: PERROS ═══ -->
+<div class="magic-divider">✦ ✦ ✦</div>
+<section class="species-section fade-up" id="perros">
+  <div class="species-header">
+    <div class="species-icon icon-dog">🐕</div>
+    <div>
+      <h2>Perros</h2>
+      <p>Alimentación, salud, razas y todo lo que necesita tu mejor amigo</p>
+    </div>
+  </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-perros',-1)">‹</button>
+    <div class="carousel-track" id="track-perros"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-perros',1)">›</button>
+  </div>
+</section>
+
+<!-- ═══ SECCIÓN: GATOS ═══ -->
+<div class="magic-divider">✦ ✦ ✦</div>
+<section class="species-section fade-up" id="gatos">
+  <div class="species-header">
+    <div class="species-icon icon-cat">🐱</div>
+    <div>
+      <h2>Gatos</h2>
+      <p>Enigmáticos, independientes y absolutamente irresistibles</p>
+    </div>
+  </div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-gatos',-1)">‹</button>
+    <div class="carousel-track" id="track-gatos"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-gatos',1)">›</button>
+  </div>
+</section>
+
+<!-- ═══ SECCIÓN: OTROS ═══ -->
+<div class="magic-divider">✦ ✦ ✦</div>
+<section class="species-section fade-up" id="otros">
+  <div class="species-header">
+    <div class="species-icon icon-other">🐾</div>
+    <div>
+      <h2>Otras mascotas</h2>
+      <p>Para los que eligieron compañeros un poco diferentes</p>
+    </div>
+  </div>
+  <div class="otros-grid" id="grid-otros"></div>
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" onclick="scrollCarousel('track-otros',-1)">‹</button>
+    <div class="carousel-track" id="track-otros"></div>
+    <button class="carousel-btn next" onclick="scrollCarousel('track-otros',1)">›</button>
+  </div>
+</section>
+
+<!-- ═══ VACUNAS ═══ -->
+<section class="vacunas-section" id="vacunas">
+  <div class="vacunas-inner fade-up">
+    <span class="section-tag magic">🪄 Herramienta</span>
+    <h2>Calculadora de <em>vacunas</em></h2>
+    <p class="sub">Ingresá los datos de tu mascota y generamos el calendario completo con fechas.</p>
+    <div class="calc-box">
+      <div class="calc-row">
+        <div class="calc-field">
+          <label>Mascota</label>
+          <select id="calc-tipo">
+            <option value="">Elegir...</option>
+            <option value="perro">🐕 Perro</option>
+            <option value="gato">🐱 Gato</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label>Fecha de nacimiento</label>
+          <input type="date" id="calc-fecha">
+        </div>
+        <div class="calc-field">
+          <label>Zona</label>
+          <select id="calc-zona">
+            <option value="caba">CABA</option>
+            <option value="gba">GBA</option>
+            <option value="interior">Interior</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-calc" onclick="calcVacunas()">✨ Generar calendario</button>
+      <div class="vacuna-result" id="vacuna-result">
+        <h4 id="vacuna-title">📅 Calendario</h4>
+        <div class="vacuna-timeline" id="vacuna-timeline"></div>
+        <p class="vacuna-disclaimer">* Fechas aproximadas. Siempre consultá con tu veterinario.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SPONSORS ═══ -->
+<div class="sponsors-section fade-up" id="sponsors">
+  <p class="sponsors-label">Veterinarias y petshops que hacen posible AccioPet</p>
+  <div class="sponsors-row" id="sponsors-row"></div>
+  <p class="sponsor-cta">¿Tenés un petshop o veterinaria? <a href="mailto:hola@acciopet.com.ar">Sumate como sponsor →</a></p>
+</div>
+
+<!-- ═══ REGISTRO ═══ -->
+<section class="registro-section" id="registro">
+  <div class="registro-inner">
+    <div class="fade-up">
+      <span class="section-tag">🪄 Unite a la comunidad</span>
+      <h2 class="reg-title">Elegí cómo <em>apoyar AccioPet</em></h2>
+      <p class="reg-sub">El contenido es siempre gratuito. Podés elegir ver publicidad de sponsors o apoyar con un cafecito sin ads.</p>
+    </div>
+    <div class="planes fade-up">
+      <div class="plan-card" id="plan-ad" onclick="selectPlan('ad')">
+        <span class="plan-icon">📢</span>
+        <h3>Con publicidad</h3>
+        <div class="plan-price free">Gratis</div>
+        <p>Acceso completo. Verás publicidad relevante de petshops y veterinarias aliadas.</p>
+      </div>
+      <div class="plan-card dark" id="plan-cafe" onclick="selectPlan('cafe')">
+        <span class="plan-icon">☕</span>
+        <h3>Con un cafecito</h3>
+        <div class="plan-price">$500 /mes</div>
+        <p>Sin publicidad. Apoyás directamente a quienes crean el contenido.</p>
+      </div>
+    </div>
+    <div class="form-row fade-up">
+      <input type="email" class="form-input" placeholder="tu@email.com" id="hero-email">
+      <button class="btn-primary" onclick="openModal()">✨ Acceder</button>
+    </div>
+    <p class="form-note fade-up">🔒 Sin spam. Podés darte de baja cuando quieras.</p>
+    <div class="cafecito-box fade-up">
+      <h3>☕ O invitanos un cafecito puntual</h3>
+      <p>Sin suscripción. Si AccioPet te fue útil, podés apoyar con un aporte único.</p>
+      <a href="https://cafecito.app/acciopet" target="_blank" class="btn-cafecito">☕ Invitar un cafecito</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="color:var(--cream)">🪄 Accio<em>Pet</em></a>
+      <p>El mundo mágico de las mascotas. Hecho con amor en Argentina 🇦🇷</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contenido</h4>
+      <ul>
+        <li><a href="#perros">🐕 Perros</a></li>
+        <li><a href="#gatos">🐱 Gatos</a></li>
+        <li><a href="#otros">🐾 Otros</a></li>
+        <li><a href="#noticias">📰 Noticias</a></li>
+        <li><a href="#tips">💡 Tips</a></li>
+        <li><a href="#vacunas">💉 Vacunas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Comunidad</h4>
+      <ul>
+        <li><a href="#registro">Unirme gratis</a></li>
+        <li><a href="https://cafecito.app/acciopet" target="_blank">Cafecito ☕</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Proyecto</h4>
+      <ul>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="mailto:hola@acciopet.com.ar">Contacto</a></li>
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Darse de baja</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AccioPet</span>
+    <span>Con 🧡 para todos los peludos de Argentina</span>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2>🪄 ¡Bienvenido a AccioPet!</h2>
+    <p>Elegí tu plan y empezá a explorar el mundo mágico de las mascotas.</p>
+    <div class="modal-planes">
+      <div class="modal-plan act" id="mplan-ad" onclick="syncModalPlan('ad')">
+        <span class="ico">📢</span>
+        <strong>Con publicidad</strong>
+        <small>100% gratis</small>
+      </div>
+      <div class="modal-plan" id="mplan-cafe" onclick="syncModalPlan('cafe')">
+        <span class="ico">☕</span>
+        <strong>Cafecito</strong>
+        <small>Sin ads · $500/mes</small>
+      </div>
+    </div>
+    <div class="modal-form">
+      <input type="text"  class="modal-input" placeholder="Tu nombre">
+      <input type="email" class="modal-input" placeholder="tu@email.com" id="modal-email">
+      <label class="modal-check">
+        <input type="checkbox" id="chk-ads" checked>
+        <span>Acepto recibir publicidad de petshops y veterinarias aliadas</span>
+      </label>
+      <label class="modal-check">
+        <input type="checkbox" checked>
+        <span>Quiero recibir el newsletter semanal de AccioPet</span>
+      </label>
+      <button class="btn-primary" onclick="submitModal()" style="width:100%;border:none;font-family:'Nunito',sans-serif;text-align:center">
+        ✨ Acceder a AccioPet
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="data/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
